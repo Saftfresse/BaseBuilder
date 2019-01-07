@@ -16,5 +16,24 @@ namespace BaseBuilder
         {
             InitializeComponent();
         }
+
+        //
+        // Ziel Basis aufrüsten und Gewinn erziehlen
+        // durch Rohstoffe Sammeln & Handeln
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+        // 
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
