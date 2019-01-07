@@ -15,6 +15,16 @@ namespace BaseBuilder.Classes
             path = new List<GameObject>();
         }
 
+        public UpgradePath(List<GameObject> _path)
+        {
+            path = _path;
+        }
+
+        public void AddObject(GameObject obj)
+        {
+            path.Add(obj);
+        }
+
         public List<GameObject> Path()
         {
             return path;

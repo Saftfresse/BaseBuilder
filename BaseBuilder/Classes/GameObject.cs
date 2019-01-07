@@ -8,7 +8,12 @@ namespace BaseBuilder.Classes
 {
     class GameObject
     {
-        string name;
-        string description;
+        int id;
+        string title;
+        string text;
+
+        public string Title { get => title; set => title = value; }
+        public string Text { get => text; set => text = value; }
+        public int Id { get => id; set => id = value; }
     }
 }
