@@ -10,9 +10,11 @@ namespace BaseBuilder.Classes
     class Base
     {
         List<Building> buildings = new List<Building>();
+        CitizenManager citizen = new CitizenManager();
+
         Person instructor = new Person();
         Bitmap draw;
-
+        Random r = new Random();
 
         public Base()
         {
@@ -21,8 +23,9 @@ namespace BaseBuilder.Classes
                     new CentralBuilding() { Id = 1, Title = "Small Tent", Text = "Just a small tent for basic Survival", BaseCost = 24.99, Health = 97, CitizenCap = 3, Unlocked = true },
                     new CentralBuilding() { Id = 2, Title = "Wooden Shack", Text = "Basic shelter for you and a few people", BaseCost = 230, Health = 100, CitizenCap = 8, Unlocked = false } })
                     ));
+            
         }
-
+        
         public Building GraphicsClicked(Point pt)
         {
             Building ret = null;
@@ -51,5 +54,6 @@ namespace BaseBuilder.Classes
 
         internal Person Instructor { get => instructor; set => instructor = value; }
         internal List<Building> Buildings { get => buildings; set => buildings = value; }
+        internal CitizenManager Citizen { get => citizen; set => citizen = value; }
     }
 }

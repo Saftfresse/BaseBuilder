@@ -48,9 +48,12 @@
     <Compile Include="Classes\Base.cs" />
     <Compile Include="Classes\Building.cs" />
     <Compile Include="Classes\CentralBuilding.cs" />
+    <Compile Include="Classes\Citizen.cs" />
+    <Compile Include="Classes\CitizenManager.cs" />
     <Compile Include="Classes\GameObject.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Requirements.cs" />
+    <Compile Include="Classes\Resource.cs" />
     <Compile Include="Classes\UpgradePath.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

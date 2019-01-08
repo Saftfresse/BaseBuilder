@@ -53,11 +53,16 @@ namespace BaseBuilder
             }
         }
 
-        // GEnerierte Methoden
+        // Generierte Methoden
        
         private void Form1_Load(object sender, EventArgs e)
         {
             label_person.Text = Base.Instructor.CurrentLine();
+            for (int i = 0; i < 20; i++)
+            {
+                Citizen c = Base.Citizen.GetRandomCitizen();
+                textBox1.Text += c.Name + " - " + c.CitizenSex + Environment.NewLine;
+            }
             MainLoop();
         }
 
