@@ -12,6 +12,7 @@ namespace BaseBuilder.Classes
         string story;
         double health = 100.0;
         double happiness = 75.0;
+        Building house;
         Sex sex = Sex.Male;
         Professions profession = Professions.Builder;
 
@@ -40,5 +41,6 @@ namespace BaseBuilder.Classes
         public double Happiness { get => happiness; set => happiness = value; }
         public Sex CitizenSex { get => sex; set => sex = value; }
         internal Professions Profession { get => profession; set => profession = value; }
+        internal Building House { get => house; set => house = value; }
     }
 }

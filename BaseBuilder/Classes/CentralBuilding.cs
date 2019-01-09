@@ -22,6 +22,22 @@ namespace BaseBuilder.Classes
             SetBasePath();
         }
 
+        public override void applyValues(Building b)
+        {
+            base.applyValues(b);
+            citizenCap = ((CentralBuilding)b).citizenCap;
+        }
+
+        public override void Upgrade()
+        {
+            CentralBuilding next = (CentralBuilding)NextUpgrade();
+            if (next != null)
+            {
+                applyValues(next);
+                Level++;
+            }
+        }
+        
         public int Citizens { get => citizens; set => citizens = value; }
         public int CitizenCap { get => citizenCap; set => citizenCap = value; }
     }

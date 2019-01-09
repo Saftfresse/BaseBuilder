@@ -26,14 +26,19 @@ namespace BaseBuilder.Classes
         {
 
         }
-
+        
         public Building(UpgradePath _path)
         {
             path = _path;
             SetBasePath();
         }
 
-        void applyValues(Building b)
+        public Building CurrentUpgrade()
+        {
+            return (Building)path.Path().ElementAt(level);
+        }
+
+        public virtual void applyValues(Building b)
         {
             stats = b.stats;
             health = b.health;
@@ -50,18 +55,22 @@ namespace BaseBuilder.Classes
 
         public Building NextUpgrade()
         {
-            return (Building)path.Next(path.Path()[level]);
+            try
+            {
+                return (Building)path.Next(path.Path()[level]);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
-        public void Upgrade()
+        public virtual void Upgrade()
         {
             Building next = NextUpgrade();
             if (next != null)
             {
                 applyValues(next);
-
-
-
                 level++;
             }
         }

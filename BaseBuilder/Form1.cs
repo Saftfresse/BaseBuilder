@@ -36,8 +36,9 @@ namespace BaseBuilder
         // Globale Variablen
         Base Base = new Base();
         DateTime time = new DateTime(2130, 6, 12, 8, 30, 5);
-        int speed = 13;
+        int speed = 17;
         int speedMulti = 1;
+        Building selectedBuilding;
 
         // Lokale Variablen
 
@@ -47,9 +48,35 @@ namespace BaseBuilder
         {
             while (true)
             {
-                time = time.AddSeconds(speed * speedMulti);
-                Text = time.ToShortDateString() + "    " + time.ToLongTimeString();
-                await Task.Delay(50);
+                time = time.AddSeconds(speed);
+                Text = time.ToShortDateString() + "    " + time.ToShortTimeString();
+                Base.TickUpdate();
+                UpdateInformations();
+                await Task.Delay(50 / speedMulti);
+            }
+        }
+
+        void UpdateInformations()
+        {
+            if (selectedBuilding != null)
+            {
+                label_info_title.Text = selectedBuilding.Title;
+                label_info_text.Text = selectedBuilding.Text;
+                if (selectedBuilding.Id == 1)
+                {
+                    Base.Instructor.UnlockLineAndJumpTo(3);
+                    label_person.Text = Base.Instructor.CurrentLine();
+                }
+                if (selectedBuilding is CentralBuilding)
+                {
+                    CentralBuilding c = (CentralBuilding)selectedBuilding;
+                    label_info_text.Text += "\nCitizens: " + c.Citizens + " / " + c.CitizenCap;
+                }
+            }
+            else
+            {
+                label_info_title.Text = "";
+                label_info_text.Text = "";
             }
         }
 
@@ -57,12 +84,8 @@ namespace BaseBuilder
        
         private void Form1_Load(object sender, EventArgs e)
         {
+            Location = Screen.AllScreens[1].WorkingArea.Location;
             label_person.Text = Base.Instructor.CurrentLine();
-            for (int i = 0; i < 20; i++)
-            {
-                Citizen c = Base.Citizen.GetRandomCitizen();
-                textBox1.Text += c.Name + " - " + c.CitizenSex + Environment.NewLine;
-            }
             MainLoop();
         }
 
@@ -74,7 +97,9 @@ namespace BaseBuilder
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Base.Buildings[0].Upgrade();
+            ((CentralBuilding)Base.Buildings.Find(x => x is CentralBuilding)).Upgrade();
+            //Base.CleanUpCitizens();
+            UpdateInformations();
             canvas.Invalidate();
         }
 
@@ -98,17 +123,8 @@ namespace BaseBuilder
         private void canvas_MouseClick(object sender, MouseEventArgs e)
         {
             Building b = Base.GraphicsClicked(e.Location);
-            if (b != null)
-            {
-
-                label_info_title.Text = b.Title;
-                label_info_text.Text = b.Text;
-                if (b.Id == 1)
-                {
-                    Base.Instructor.UnlockLineAndJumpTo(3);
-                    label_person.Text = Base.Instructor.CurrentLine();
-                }
-            }
+            selectedBuilding = b;
+            UpdateInformations();
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -37,7 +37,7 @@
             this.panel_right = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel_base.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
@@ -75,7 +75,7 @@
             // 
             // label_info_title
             // 
-            this.label_info_title.Font = new System.Drawing.Font("Quicksand Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_info_title.Location = new System.Drawing.Point(3, 1);
             this.label_info_title.Name = "label_info_title";
             this.label_info_title.Size = new System.Drawing.Size(605, 33);
@@ -109,7 +109,7 @@
             // 
             // panel_right
             // 
-            this.panel_right.Controls.Add(this.textBox1);
+            this.panel_right.Controls.Add(this.label1);
             this.panel_right.Controls.Add(this.button2);
             this.panel_right.Controls.Add(this.button1);
             this.panel_right.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -138,13 +138,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Location = new System.Drawing.Point(156, 133);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(353, 454);
-            this.textBox1.TabIndex = 2;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(88, 139);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
             // 
             // Form1
             // 
@@ -154,6 +155,7 @@
             this.Controls.Add(this.panel_right);
             this.Controls.Add(this.panel_base);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_base.ResumeLayout(false);
@@ -176,7 +178,7 @@
         private System.Windows.Forms.Label label_info_title;
         private System.Windows.Forms.Label label_info_text;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 

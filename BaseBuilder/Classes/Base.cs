@@ -16,16 +16,56 @@ namespace BaseBuilder.Classes
         Bitmap draw;
         Random r = new Random();
 
+        int citizenChanceMultiplier = 100;
+        int citizenChanceCooldownDuration = 360;
+
         public Base()
         {
             Buildings.Add(new CentralBuilding(new UpgradePath(
                 new List<GameObject>() {
                     new CentralBuilding() { Id = 1, Title = "Small Tent", Text = "Just a small tent for basic Survival", BaseCost = 24.99, Health = 97, CitizenCap = 3, Unlocked = true },
-                    new CentralBuilding() { Id = 2, Title = "Wooden Shack", Text = "Basic shelter for you and a few people", BaseCost = 230, Health = 100, CitizenCap = 8, Unlocked = false } })
-                    ));
+                    new CentralBuilding() { Id = 2, Title = "Wooden Shack", Text = "Basic shelter for you and a few people", BaseCost = 230, Health = 100, CitizenCap = 8, Unlocked = false },
+                    new CentralBuilding() { Id = 3, Title = "Improvised Town Hall", Text = "Wooden Building made to provide shelter and room for city planning", BaseCost = 1300, Health = 100, CitizenCap = 21, Unlocked = false } })
+                    ) { Id = 1});
             
         }
         
+        public void CleanUpCitizens()
+        {
+            foreach (var item in citizen.Citizens)
+            {
+                if (item.House is CentralBuilding)
+                {
+                    CentralBuilding c = (CentralBuilding)item.House;
+                    ((CentralBuilding)c).Citizens = 0;
+                }
+            }
+            foreach (var item in citizen.Citizens)
+            {
+                if (item.House is CentralBuilding)
+                {
+                    CentralBuilding c = (CentralBuilding)item.House;
+                    ((CentralBuilding)c).Citizens++;
+                }
+            }
+        }
+
+        public void TickUpdate()
+        {
+            int tickValue = r.Next(0, citizenChanceMultiplier);
+            if (tickValue == 1)
+            {
+                CentralBuilding c = (CentralBuilding)buildings.Find(x => x is CentralBuilding);
+                if (c.Citizens < c.CitizenCap)
+                {
+                    Citizen cit = citizen.GetRandomCitizen(Classes.Citizen.Sex.Male);
+                    cit.House = c;
+                    c.Citizens++;
+                    citizen.Citizens.Add(cit);
+                }
+            }
+        }
+
         public Building GraphicsClicked(Point pt)
         {
             Building ret = null;
@@ -33,7 +73,7 @@ namespace BaseBuilder.Classes
             {
                 if (item.Bounds.Contains(pt))
                 {
-                    ret = item;
+                    ret = item; 
                 }
             }
             return ret;

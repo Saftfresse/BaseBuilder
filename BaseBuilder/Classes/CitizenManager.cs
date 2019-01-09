@@ -26,54 +26,45 @@ namespace BaseBuilder.Classes
 
         }
 
+        string getSurName(List<string> input, List<int> taken)
+        {
+            int nameIndex = r.Next(0, input.Count);
+            int attempts = 0;
+            while (taken.FindAll(x => x == nameIndex).Count > 0 && attempts < input.Count)
+            {
+                nameIndex = r.Next(0, input.Count);
+                attempts++;
+            }
+            if (attempts >= input.Count)
+            {
+                taken.Clear();
+                nameIndex = r.Next(0, input.Count);
+            }
+            taken.Add(nameIndex);
+            return input[nameIndex];
+        }
+
+        string getLastName()
+        {
+            int lastNameIndex = r.Next(0, Lastnames.Count);
+            int attempts = 0;
+            while (lastnamesTaken.FindAll(x => x == lastNameIndex).Count > 0 && attempts < Lastnames.Count)
+            {
+                lastNameIndex = r.Next(0, Lastnames.Count);
+                attempts++;
+            }
+            if (attempts >= Lastnames.Count)
+            {
+                lastnamesTaken.Clear();
+                lastNameIndex = r.Next(0, Lastnames.Count);
+            }
+            lastnamesTaken.Add(lastNameIndex);
+            return lastnames[lastNameIndex];
+        }
+
         public Citizen GetRandomCitizen()
         {
-            Citizen c = new Citizen();
-            c.CitizenSex = r.Next(0, 3) == 0 ? Citizen.Sex.Female : Citizen.Sex.Male;
-            if (c.CitizenSex == Citizen.Sex.Male)
-            {
-                int nameIndex = r.Next(0, SurnamesMale.Count);
-                while (surnamesMaleTaken.FindAll(x => x == nameIndex).Count > 0)
-                {
-                    nameIndex = r.Next(0, SurnamesMale.Count);
-                }
-                string name = SurnamesMale[nameIndex];
-                surnamesMaleTaken.Add(nameIndex);
-
-                int lastNameIndex = r.Next(0, Lastnames.Count);
-                while (lastnamesTaken.FindAll(x => x == lastNameIndex).Count > 0)
-                {
-                    lastNameIndex = r.Next(0, Lastnames.Count);
-                }
-                name += " " + Lastnames[lastNameIndex];
-                lastnamesTaken.Add(lastNameIndex);
-
-                c.Name = name;
-                c.Story = "A normal male citizen from decent parents";
-            }
-            else
-            {
-                int nameIndex = r.Next(0, SurnamesFemale.Count);
-                while (surnamesFemaleTaken.FindAll(x => x == nameIndex).Count > 0)
-                {
-                    nameIndex = r.Next(0, SurnamesFemale.Count);
-                }
-                string name = SurnamesFemale[nameIndex];
-                surnamesFemaleTaken.Add(nameIndex);
-
-                int lastNameIndex = r.Next(0, Lastnames.Count);
-                while (lastnamesTaken.FindAll(x => x == lastNameIndex).Count > 0)
-                {
-                    lastNameIndex = r.Next(0, Lastnames.Count);
-                }
-                name += " " + Lastnames[lastNameIndex];
-                lastnamesTaken.Add(lastNameIndex);
-
-                c.Name = name;
-                c.Story = "A normal female citizen from decent parents";
-            }
-
-            return c;
+            return GetRandomCitizen(r.Next(0, 3) == 0 ? Citizen.Sex.Female : Citizen.Sex.Male);
         }
 
         public Citizen GetRandomCitizen(Citizen.Sex _sex)
@@ -82,48 +73,17 @@ namespace BaseBuilder.Classes
             c.CitizenSex = _sex;
             if (_sex == Citizen.Sex.Male)
             {
-                int nameIndex = r.Next(0, SurnamesMale.Count);
-                while (surnamesMaleTaken.FindAll(x => x == nameIndex).Count > 0)
-                {
-                    nameIndex = r.Next(0, SurnamesMale.Count);
-                }
-                string name = SurnamesMale[nameIndex];
-                surnamesMaleTaken.Add(nameIndex);
-
-                int lastNameIndex = r.Next(0, Lastnames.Count);
-                while (lastnamesTaken.FindAll(x => x == lastNameIndex).Count > 0)
-                {
-                    lastNameIndex = r.Next(0, Lastnames.Count);
-                }
-                name += " " + Lastnames[lastNameIndex];
-                lastnamesTaken.Add(lastNameIndex);
-
+                string name = getSurName(SurnamesMale, surnamesMaleTaken) + " " + getLastName();
                 c.Name = name;
                 c.Story = "A normal male citizen from decent parents";
             }
             else
             {
-                int nameIndex = r.Next(0, SurnamesFemale.Count);
-                while (surnamesFemaleTaken.FindAll(x => x == nameIndex).Count > 0)
-                {
-                    nameIndex = r.Next(0, SurnamesFemale.Count);
-                }
-                string name = SurnamesFemale[nameIndex];
-                surnamesFemaleTaken.Add(nameIndex);
-
-                int lastNameIndex = r.Next(0, Lastnames.Count);
-                while (lastnamesTaken.FindAll(x => x == lastNameIndex).Count > 0)
-                {
-                    lastNameIndex = r.Next(0, Lastnames.Count);
-                }
-                name += " " + Lastnames[lastNameIndex];
-                lastnamesTaken.Add(lastNameIndex);
-
+                string name = getSurName(SurnamesFemale, surnamesFemaleTaken) + " " + getLastName();
                 c.Profession = Citizen.Professions.Maid;
                 c.Name = name;
                 c.Story = "A normal female citizen from decent parents";
             }
-
             return c;
         }
 
