@@ -253,8 +253,10 @@ namespace BaseBuilder
 
         private void button9_Click(object sender, EventArgs e)
         {
-            Base.Inventory.AddOrUpdate(Base.Items[0], 1, (id, count) => count + 1);
-            Base.Inventory.AddOrUpdate(Base.Items[1], 1, (id, count) => count + 1);
+            foreach (var item in Base.Items)
+            {
+                Base.Inventory.AddOrUpdate(item, 1, (id, count) => count + Base.r.Next(0, 4));
+            }
             populateInventory();
         }
 

@@ -52,6 +52,8 @@ namespace BaseBuilder.Classes
                     new CentralBuilding() { Id = 3, Title = "Improvised Town Hall", Text = "Wooden Building made to provide shelter and room for city planning", BaseCost = 1300, Health = 100, CitizenCap = 21, Unlocked = false, Image = Properties.Resources.small_hall } })
                     ) { Id = 1});
 
+            items.Add(new GameItem() { Title = "Cloth", Text = "Cloth cut from old shirts and pieces", ValueInGold = 0.02, Img = Properties.Resources.cloth, Status = GameItem.ItemStatus.Utility });
+            items.Add(new GameItem() { Title = "String", Text = "Strings found in the wildernes", ValueInGold = 0.02, Img = Properties.Resources.misc_string, Status = GameItem.ItemStatus.Utility });
             items.Add(new GameItem() { Title = "Rusty Nail", Text = "Old rusty nails found in every old building", ValueInGold = 0.01, Img = Properties.Resources.rusty_nails, Status = GameItem.ItemStatus.Junk });
             items.Add(new GameItem() { Title = "Old dirty glass panels", Text = "Some old glass panels found in abandones buildings", ValueInGold = 0.07, Img = Properties.Resources.glass_shards, Status = GameItem.ItemStatus.Junk });
         }

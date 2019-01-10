@@ -73,6 +73,16 @@ namespace BaseBuilder.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cloth {
+            get {
+                object obj = ResourceManager.GetObject("cloth", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap coal {
             get {
                 object obj = ResourceManager.GetObject("coal", resourceCulture);
@@ -136,6 +146,16 @@ namespace BaseBuilder.Properties {
         internal static System.Drawing.Bitmap military_tent {
             get {
                 object obj = ResourceManager.GetObject("military-tent", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap misc_string {
+            get {
+                object obj = ResourceManager.GetObject("misc_string", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

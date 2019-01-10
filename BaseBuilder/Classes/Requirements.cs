@@ -13,6 +13,10 @@ namespace BaseBuilder.Classes
 
         }
 
+        Dictionary<GameItem, int> itemsRequired = new Dictionary<GameItem, int>();
+        List<Resource> resourcesRequired = new List<Resource>();
 
+        internal Dictionary<GameItem, int> ItemsRequired { get => itemsRequired; set => itemsRequired = value; }
+        internal List<Resource> ResourcesRequired { get => resourcesRequired; set => resourcesRequired = value; }
     }
 }

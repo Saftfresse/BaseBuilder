@@ -22,6 +22,7 @@ namespace BaseBuilder.Classes
         public enum ItemStatus
         {
             Junk,
+            Utility,
             Common,
             Rare,
             Epic,

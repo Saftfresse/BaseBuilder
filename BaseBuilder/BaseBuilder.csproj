@@ -141,5 +141,11 @@
   <ItemGroup>
     <None Include="Resources\69364351-stock-vector-broken-glass-shards-isolated-on-white-vector-set-transparent-of-sharp-fragment-glass-illustration-of.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cloth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\misc-string.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
