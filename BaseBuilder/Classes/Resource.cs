@@ -23,6 +23,7 @@ namespace BaseBuilder.Classes
         string suffix;
         double baseValue;
         double amount;
+        double income;
         
         public string GetAmount()
         {
@@ -33,5 +34,6 @@ namespace BaseBuilder.Classes
         public double BaseValue { get => baseValue; set => baseValue = value; }
         public string Suffix { get => suffix; set => suffix = value; }
         public double Amount { get => amount; set => amount = value; }
+        public double Income { get => income; set => income = value; }
     }
 }

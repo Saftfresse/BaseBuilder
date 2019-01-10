@@ -28,14 +28,17 @@ namespace BaseBuilder.Classes
             citizenCap = ((CentralBuilding)b).citizenCap;
         }
 
-        public override void Upgrade()
+        public override bool Upgrade()
         {
+            bool succ = false;
             CentralBuilding next = (CentralBuilding)NextUpgrade();
             if (next != null)
             {
                 applyValues(next);
                 Level++;
+                succ = true;
             }
+            return succ;
         }
         
         public int Citizens { get => citizens; set => citizens = value; }

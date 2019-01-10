@@ -13,6 +13,7 @@ namespace BaseBuilder.Classes
         int level = 0;
         int stats = 10;
         Requirements reqs;
+        Image image;
 
 
         double health = 100.0;
@@ -65,14 +66,17 @@ namespace BaseBuilder.Classes
             }
         }
 
-        public virtual void Upgrade()
+        public virtual bool Upgrade()
         {
+            bool succ = false;
             Building next = NextUpgrade();
             if (next != null)
             {
+                succ = true;
                 applyValues(next);
                 level++;
             }
+            return succ;
         }
 
         public UpgradePath UpgradePath { get => path; set => path = value; }
@@ -82,5 +86,6 @@ namespace BaseBuilder.Classes
         public Rectangle Bounds { get => bounds; set => bounds = value; }
         public bool Unlocked { get => unlocked; set => unlocked = value; }
         internal Requirements Requirements { get => reqs; set => reqs = value; }
+        public Image Image { get => image; set => image = value; }
     }
 }

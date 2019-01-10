@@ -50,6 +50,7 @@
     <Compile Include="Classes\CentralBuilding.cs" />
     <Compile Include="Classes\Citizen.cs" />
     <Compile Include="Classes\CitizenManager.cs" />
+    <Compile Include="Classes\GameItem.cs" />
     <Compile Include="Classes\GameObject.cs" />
     <Compile Include="Classes\Person.cs" />
     <Compile Include="Classes\Requirements.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -87,6 +89,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\military-tent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shack.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\small_hall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\small_hall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\silver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crystal_baradium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crystal_iridium_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ore_brown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\attention.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rusty_nails.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\69364351-stock-vector-broken-glass-shards-isolated-on-white-vector-set-transparent-of-sharp-fragment-glass-illustration-of.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
