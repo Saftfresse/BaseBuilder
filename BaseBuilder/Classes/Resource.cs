@@ -25,6 +25,36 @@ namespace BaseBuilder.Classes
         double amount;
         double income;
         
+        public static Resource Clone(Resource input)
+        {
+            return new Resource()
+            {
+                Amount = input.Amount,
+                BaseValue = input.BaseValue,
+                Id = input.Id,
+                Income = input.Income,
+                Name = input.Name,
+                Suffix = input.Suffix,
+                Text = input.Text,
+                Title = input.Title
+            };
+        }
+
+        public static Resource Clone(Resource input, int amount)
+        {
+            return new Resource()
+            {
+                Amount = amount,
+                BaseValue = input.BaseValue,
+                Id = input.Id,
+                Income = input.Income,
+                Name = input.Name,
+                Suffix = input.Suffix,
+                Text = input.Text,
+                Title = input.Title
+            };
+        }
+
         public string GetAmount()
         {
             return Math.Round(amount, 2) + ' ' + suffix;

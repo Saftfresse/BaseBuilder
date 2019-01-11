@@ -51,6 +51,13 @@ namespace BaseBuilder.Classes
                     new CentralBuilding() { Id = 2, Title = "Wooden Shack", Text = "Basic shelter for you and a few people", BaseCost = 230, Health = 100, CitizenCap = 8, Unlocked = false, Image = Properties.Resources.shack },
                     new CentralBuilding() { Id = 3, Title = "Improvised Town Hall", Text = "Wooden Building made to provide shelter and room for city planning", BaseCost = 1300, Health = 100, CitizenCap = 21, Unlocked = false, Image = Properties.Resources.small_hall } })
                     ) { Id = 1});
+            
+            Buildings.Add(new StorageBuilding(new UpgradePath(
+                new List<GameObject>() {
+                    new StorageBuilding() { Id = 1, Title = "Small Storage Shack", Text="A Small wooden shack made to store supplies", BaseCost = 120, Health = 100, Unlocked = false, Image = Properties.Resources.shack, Capacities = new List<Resource>() { Resource.Clone(gold, 50), Resource.Clone(wood, 500) } } ,
+                    new StorageBuilding() { Id = 1, Title = "Storage Silo", Text = "Made to store big amounts of goods", BaseCost = 2800, Health = 100, Unlocked = false, Image = Properties.Resources.shack, Capacities = new List<Resource>() { Resource.Clone(gold, 190), Resource.Clone(wood, 500) } }
+                })) { Id = 2 } );
+
 
             items.Add(new GameItem() { Title = "Cloth", Text = "Cloth cut from old shirts and pieces", ValueInGold = 0.02, Img = Properties.Resources.cloth, Status = GameItem.ItemStatus.Utility });
             items.Add(new GameItem() { Title = "String", Text = "Strings found in the wildernes", ValueInGold = 0.02, Img = Properties.Resources.misc_string, Status = GameItem.ItemStatus.Utility });
