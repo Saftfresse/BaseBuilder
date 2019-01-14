@@ -30,6 +30,7 @@ namespace BaseBuilder.Classes
         int citizenChanceCooldownDurationCurrent = 0;
 
         int hoursForNextIncome = 2;
+        int hoursForNextIncomeTotal = 2;
         
         public enum ExperienceCount
         {
@@ -71,7 +72,9 @@ namespace BaseBuilder.Classes
             {
                 item.Amount += item.Income;
             }
-            HoursForNextIncome = r.Next(2, 9);
+            int i = r.Next(2, 9);
+            HoursForNextIncome = i;
+            HoursForNextIncomeTotal = i;
         }
 
         public void CleanUpCitizens()
@@ -149,5 +152,6 @@ namespace BaseBuilder.Classes
         public int HoursForNextIncome { get => hoursForNextIncome; set => hoursForNextIncome = value; }
         internal List<GameItem> Items { get => items; set => items = value; }
         internal ConcurrentDictionary<GameItem, int> Inventory { get => inventory; set => inventory = value; }
+        public int HoursForNextIncomeTotal { get => hoursForNextIncomeTotal; set => hoursForNextIncomeTotal = value; }
     }
 }

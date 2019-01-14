@@ -60,6 +60,7 @@ namespace BaseBuilder
                 Base.TickUpdate();
                 UpdateInformations();
                 canvas_time.Invalidate();
+                canvas_income.Invalidate();
                 await Task.Delay(50 / speedMulti);
             }
         }
@@ -267,6 +268,15 @@ namespace BaseBuilder
                 Base.Experience -= 100;
                 Base.Level++;
             }
+        }
+
+        private void canvas_income_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.Clear(Color.White);
+            int wiTotal = canvas_income.Width;
+            float stepWi = (float)wiTotal / (float)Base.HoursForNextIncomeTotal;
+            float totalWidth = (float)(stepWi * (Base.HoursForNextIncomeTotal - Base.HoursForNextIncome));
+            e.Graphics.FillRectangle(new SolidBrush(Color.BlueViolet), 0, 0, totalWidth + stepWi * time.Minute / 60, canvas_income.Height);
         }
     }
 }
