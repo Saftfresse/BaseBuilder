@@ -35,6 +35,7 @@
             this.canvas = new System.Windows.Forms.PictureBox();
             this.label_person = new System.Windows.Forms.Label();
             this.panel_right = new System.Windows.Forms.Panel();
+            this.canvas_income = new System.Windows.Forms.PictureBox();
             this.label_level = new System.Windows.Forms.Label();
             this.label_xp = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -90,9 +91,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.canvas_time = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.canvas_income = new System.Windows.Forms.PictureBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -100,10 +98,14 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.canvas_time = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_base.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
             this.panel_right.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.canvas_income)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel6.SuspendLayout();
@@ -124,11 +126,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.canvas_time)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.canvas_income)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.canvas_time)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_base
@@ -215,6 +216,15 @@
             this.panel_right.Size = new System.Drawing.Size(879, 805);
             this.panel_right.TabIndex = 1;
             // 
+            // canvas_income
+            // 
+            this.canvas_income.Location = new System.Drawing.Point(6, 17);
+            this.canvas_income.Name = "canvas_income";
+            this.canvas_income.Size = new System.Drawing.Size(261, 5);
+            this.canvas_income.TabIndex = 14;
+            this.canvas_income.TabStop = false;
+            this.canvas_income.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_income_Paint);
+            // 
             // label_level
             // 
             this.label_level.AutoSize = true;
@@ -247,7 +257,7 @@
             // label9
             // 
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Veteran Typewriter", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DarkGreen;
             this.label9.Location = new System.Drawing.Point(128, 0);
             this.label9.Name = "label9";
@@ -259,7 +269,7 @@
             // label10
             // 
             this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(32, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(96, 30);
@@ -292,7 +302,7 @@
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Veteran Typewriter", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGreen;
             this.label4.Location = new System.Drawing.Point(128, 0);
             this.label4.Name = "label4";
@@ -304,7 +314,7 @@
             // label8
             // 
             this.label8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label8.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(32, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 30);
@@ -337,7 +347,7 @@
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Veteran Typewriter", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkGreen;
             this.label2.Location = new System.Drawing.Point(128, 0);
             this.label2.Name = "label2";
@@ -349,7 +359,7 @@
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(32, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 30);
@@ -391,7 +401,7 @@
             // label_resource_income_wood
             // 
             this.label_resource_income_wood.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_resource_income_wood.Font = new System.Drawing.Font("Veteran Typewriter", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_resource_income_wood.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_resource_income_wood.ForeColor = System.Drawing.Color.DarkGreen;
             this.label_resource_income_wood.Location = new System.Drawing.Point(128, 0);
             this.label_resource_income_wood.Name = "label_resource_income_wood";
@@ -403,7 +413,7 @@
             // label_resource_wood
             // 
             this.label_resource_wood.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_resource_wood.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_resource_wood.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_resource_wood.Location = new System.Drawing.Point(32, 0);
             this.label_resource_wood.Name = "label_resource_wood";
             this.label_resource_wood.Size = new System.Drawing.Size(96, 30);
@@ -436,7 +446,7 @@
             // label_resource_income_silver
             // 
             this.label_resource_income_silver.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_resource_income_silver.Font = new System.Drawing.Font("Veteran Typewriter", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_resource_income_silver.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_resource_income_silver.ForeColor = System.Drawing.Color.DarkGreen;
             this.label_resource_income_silver.Location = new System.Drawing.Point(128, 0);
             this.label_resource_income_silver.Name = "label_resource_income_silver";
@@ -448,7 +458,7 @@
             // label_resource_silver
             // 
             this.label_resource_silver.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_resource_silver.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_resource_silver.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_resource_silver.Location = new System.Drawing.Point(32, 0);
             this.label_resource_silver.Name = "label_resource_silver";
             this.label_resource_silver.Size = new System.Drawing.Size(96, 30);
@@ -481,7 +491,7 @@
             // label_resource_income_gold
             // 
             this.label_resource_income_gold.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_resource_income_gold.Font = new System.Drawing.Font("Veteran Typewriter", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_resource_income_gold.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_resource_income_gold.ForeColor = System.Drawing.Color.DarkGreen;
             this.label_resource_income_gold.Location = new System.Drawing.Point(128, 0);
             this.label_resource_income_gold.Name = "label_resource_income_gold";
@@ -493,7 +503,7 @@
             // label_resource_gold
             // 
             this.label_resource_gold.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_resource_gold.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_resource_gold.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_resource_gold.Location = new System.Drawing.Point(32, 0);
             this.label_resource_gold.Name = "label_resource_gold";
             this.label_resource_gold.Size = new System.Drawing.Size(96, 30);
@@ -584,10 +594,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Veteran Typewriter", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(23, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 23);
+            this.label1.Size = new System.Drawing.Size(124, 25);
             this.label1.TabIndex = 9;
             this.label1.Text = "Resources";
             // 
@@ -610,7 +620,7 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(135, 75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 30);
@@ -620,7 +630,7 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(135, 44);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 30);
@@ -630,7 +640,7 @@
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(135, 13);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 30);
@@ -640,7 +650,7 @@
             // 
             // label_inventory_wood
             // 
-            this.label_inventory_wood.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_inventory_wood.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_inventory_wood.Location = new System.Drawing.Point(41, 75);
             this.label_inventory_wood.Name = "label_inventory_wood";
             this.label_inventory_wood.Size = new System.Drawing.Size(94, 30);
@@ -660,7 +670,7 @@
             // 
             // label_inventory_silver
             // 
-            this.label_inventory_silver.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_inventory_silver.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_inventory_silver.Location = new System.Drawing.Point(41, 44);
             this.label_inventory_silver.Name = "label_inventory_silver";
             this.label_inventory_silver.Size = new System.Drawing.Size(94, 30);
@@ -680,7 +690,7 @@
             // 
             // label_inventory_gold
             // 
-            this.label_inventory_gold.Font = new System.Drawing.Font("Veteran Typewriter", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_inventory_gold.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_inventory_gold.Location = new System.Drawing.Point(41, 13);
             this.label_inventory_gold.Name = "label_inventory_gold";
             this.label_inventory_gold.Size = new System.Drawing.Size(94, 30);
@@ -816,34 +826,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // canvas_time
-            // 
-            this.canvas_time.Location = new System.Drawing.Point(6, 6);
-            this.canvas_time.Name = "canvas_time";
-            this.canvas_time.Size = new System.Drawing.Size(261, 12);
-            this.canvas_time.TabIndex = 3;
-            this.canvas_time.TabStop = false;
-            this.canvas_time.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_time_Paint);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 28);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(261, 25);
-            this.button2.TabIndex = 1;
-            this.button2.Text = ">> 1 >>";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // canvas_income
-            // 
-            this.canvas_income.Location = new System.Drawing.Point(6, 17);
-            this.canvas_income.Name = "canvas_income";
-            this.canvas_income.Size = new System.Drawing.Size(261, 5);
-            this.canvas_income.TabIndex = 14;
-            this.canvas_income.TabStop = false;
-            this.canvas_income.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_income_Paint);
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.tabControl2);
@@ -864,13 +846,14 @@
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(862, 582);
             this.tabControl2.TabIndex = 0;
+            this.tabControl2.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
             // 
             // tabPage5
             // 
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(617, 443);
+            this.tabPage5.Size = new System.Drawing.Size(854, 556);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Professions";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -890,11 +873,13 @@
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2});
+            this.columnHeader2,
+            this.columnHeader3});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(3, 3);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(374, 550);
+            this.listView1.Size = new System.Drawing.Size(434, 550);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -909,6 +894,29 @@
             this.columnHeader2.Text = "Profession";
             this.columnHeader2.Width = 120;
             // 
+            // canvas_time
+            // 
+            this.canvas_time.Location = new System.Drawing.Point(6, 6);
+            this.canvas_time.Name = "canvas_time";
+            this.canvas_time.Size = new System.Drawing.Size(261, 12);
+            this.canvas_time.TabIndex = 3;
+            this.canvas_time.TabStop = false;
+            this.canvas_time.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_time_Paint);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 28);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(261, 25);
+            this.button2.TabIndex = 1;
+            this.button2.Text = ">> 1 >>";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Sex";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -917,7 +925,7 @@
             this.Controls.Add(this.panel_right);
             this.Controls.Add(this.panel_base);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_base.ResumeLayout(false);
@@ -925,6 +933,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
             this.panel_right.ResumeLayout(false);
             this.panel_right.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.canvas_income)).EndInit();
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel6.ResumeLayout(false);
@@ -947,11 +956,10 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.canvas_time)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.canvas_income)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.canvas_time)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1030,5 +1038,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

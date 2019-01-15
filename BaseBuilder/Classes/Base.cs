@@ -8,8 +8,25 @@ using System.Threading.Tasks;
 
 namespace BaseBuilder.Classes
 {
+    public class ProgressEventArgs : EventArgs
+    {
+        public string Status { get; private set; }
+
+        public ProgressEventArgs(string status)
+        {
+            Status = status;
+        }
+    }
+
     class Base
     {
+        // _Events
+
+        public delegate void CitizensUpdatedHandler(object sender, ProgressEventArgs e);
+        public event CitizensUpdatedHandler OnUpdateCitizen;
+
+        // Variablen
+
         List<Building> buildings = new List<Building>();
         CitizenManager citizen = new CitizenManager();
 
@@ -111,6 +128,7 @@ namespace BaseBuilder.Classes
                     citizen.Citizens.Add(cit);
                     experience += (int)ExperienceCount.CitizenArrived * level;
                     citizenChanceCooldownDurationCurrent = r.Next((int)(citizenChanceCooldownDuration * 0.6), (int)(citizenChanceCooldownDuration * 1.2));
+                    OnUpdateCitizen?.Invoke(this, new ProgressEventArgs(""));
                 }
             }
             if (citizenChanceCooldownDurationCurrent > 0) citizenChanceCooldownDurationCurrent--;

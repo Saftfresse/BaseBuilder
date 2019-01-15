@@ -64,6 +64,19 @@ namespace BaseBuilder
                 await Task.Delay(50 / speedMulti);
             }
         }
+        
+        void UpdateCitizen()
+        {
+            listView1.Items.Clear();
+            foreach (var item in Base.Citizen.Citizens)
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = item.Name;
+                lvi.SubItems.Add(item.Profession.ToString());
+                lvi.SubItems.Add(item.CitizenSex.ToString());
+                listView1.Items.Add(lvi);
+            }
+        }
 
         void UpdateStatsAndResources()
         {
@@ -142,9 +155,15 @@ namespace BaseBuilder
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Location = Screen.AllScreens[1].WorkingArea.Location;
+            Location = Screen.AllScreens[1].WorkingArea.Location;
+            Base.OnUpdateCitizen += Base_OnUpdateCitizen;
             label_person.Text = Base.Instructor.CurrentLine();
             MainLoop();
+        }
+
+        private void Base_OnUpdateCitizen(object sender, ProgressEventArgs e)
+        {
+            UpdateCitizen();
         }
 
         private void label_person_Click(object sender, EventArgs e)
@@ -214,11 +233,12 @@ namespace BaseBuilder
             CentralBuilding c = (CentralBuilding)Base.Buildings.Find(x => x is CentralBuilding);
             if (c.Citizens < c.CitizenCap)
             {
-                Citizen cit = Base.Citizen.GetRandomCitizen(Classes.Citizen.Sex.Male);
+                Citizen cit = Base.Citizen.GetRandomCitizen();
                 cit.House = c;
                 c.Citizens++;
                 Base.Citizen.Citizens.Add(cit);
                 Base.Experience += (int)Base.ExperienceCount.CitizenArrived * Base.Level;
+                UpdateCitizen();
             }
         }
 
@@ -277,6 +297,11 @@ namespace BaseBuilder
             float stepWi = (float)wiTotal / (float)Base.HoursForNextIncomeTotal;
             float totalWidth = (float)(stepWi * (Base.HoursForNextIncomeTotal - Base.HoursForNextIncome));
             e.Graphics.FillRectangle(new SolidBrush(Color.BlueViolet), 0, 0, totalWidth + stepWi * time.Minute / 60, canvas_income.Height);
+        }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
